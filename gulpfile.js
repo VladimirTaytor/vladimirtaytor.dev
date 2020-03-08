@@ -1,8 +1,13 @@
-const gulp = require('gulp');
-const webpack = require('webpack-stream');
+const gulp = require('gulp')
+const webpack = require('webpack-stream')
+const webpackConfig = require('./webpack.config.js')
 
-gulp.task('default', function() {
-  return gulp.src('src/entry.js')
-    .pipe(webpack())
-    .pipe(gulp.dest('dist/'));
-});
+const buildClient = ({ isWatching = false }) =>
+  gulp
+    .src('src/client/index.js')
+    .pipe(webpack({ watch: !!isWatching, ...webpackConfig }))
+    .pipe(gulp.dest('public/dist'))
+
+gulp.task('default', () => buildClient())
+
+gulp.task('watch:client', () => buildClient({ isWatching: true }))
