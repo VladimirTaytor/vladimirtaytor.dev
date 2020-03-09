@@ -1,3 +1,7 @@
 import { renderScene } from './engine'
+import { getCurrentPlayingSong } from './api'
 
-window.onload = () => renderScene()
+window.onload = async () => {
+  await getCurrentPlayingSong()
+  renderScene()
+}
