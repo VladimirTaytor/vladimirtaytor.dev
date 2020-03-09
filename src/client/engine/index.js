@@ -13,6 +13,7 @@ function init() {
   camera.position.z = 1
 
   scene = new THREE.Scene()
+  scene.background = new THREE.Color('#ffffff')
 
   geometry = new THREE.BoxGeometry(0.2, 0.2, 0.2)
   material = new THREE.MeshNormalMaterial()
@@ -35,7 +36,16 @@ function animate() {
   renderer.render(scene, camera)
 }
 
+function onWindowResize() {
+  camera.aspect = window.innerWidth / window.innerHeight
+  camera.updateProjectionMatrix()
+
+  renderer.setSize(window.innerWidth, window.innerHeight)
+}
+
 export function renderScene() {
   init()
   animate()
+
+  window.addEventListener('resize', onWindowResize, false)
 }
