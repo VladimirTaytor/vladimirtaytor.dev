@@ -21,7 +21,8 @@ function init() {
   scene.add(mesh)
 
   renderer = new THREE.WebGLRenderer({ antialias: true })
-  renderer.setSize(800, 600)
+  renderer.setSize(window.innerWidth, window.innerHeight)
+
   document.body.appendChild(renderer.domElement)
 }
 
@@ -34,7 +35,7 @@ function animate() {
   renderer.render(scene, camera)
 }
 
-export function start() {
+export function renderScene() {
   init()
   animate()
 }

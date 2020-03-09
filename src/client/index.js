@@ -1,3 +1,3 @@
-import { start } from './engine'
+import { renderScene } from './engine'
 
-start()
+window.onload = () => renderScene()
