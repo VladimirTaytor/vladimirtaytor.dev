@@ -10,7 +10,7 @@
     "url": "git@github.com:VladimirTaytor/vladimirtaytor.dev.git"
   },
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "node -r dotenv/config ./bin/www",
     "lint": "npx eslint",
     "build": "npx gulp",
     "watch": "npx gulp watch:client"
@@ -19,6 +19,7 @@
     "axios": "^0.19.2",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
